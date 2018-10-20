@@ -1,0 +1,23 @@
+
+.hide_form_div{
+    display:none;
+}
+
+.show_form_div{
+    display:block;
+}
+
+html {
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+  }
+
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
