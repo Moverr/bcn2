@@ -24,4 +24,8 @@ class Registration extends CI_Controller
     {
         $this->load->view('registration');
     }
+
+    public function save()
+    {
+    }
 }
