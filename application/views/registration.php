@@ -15,7 +15,13 @@ $(document).ready(function() {
 	 $(".handleLoginUI").click(function() {
 		//Do stuff when clicked
 		handleRegistrationUI('LOGIN')
-	});
+    });
+    
+    $("#submitCreateAccount").click(function() {
+		//Do stuff when clicked
+		handleRegistration();
+    });
+    
 
 	
 	
@@ -65,7 +71,7 @@ $(document).ready(function() {
                                 </div>
 
 
-                                <button type="button" onClick="javascript:handleRegistration()" class="btn btn-primary">
+                                <button type="button"  id="submitCreateAccount" class="btn btn-primary">
                                     Submit 
                                 </button> &nbsp;&nbsp;&nbsp;
                                 <a href="#" class="handleLoginUI"> Already have an Account</a>
