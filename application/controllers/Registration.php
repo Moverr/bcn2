@@ -28,6 +28,10 @@ class Registration extends CI_Controller
     public function save()
     {
         $data = filter_forwarded_data($this);
-        echo $_POST;
+
+        print_r($_POST);
+        if (!empty($_POST)) {
+            echo 'Did you know';
+        }
     }
 }

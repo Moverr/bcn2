@@ -29,13 +29,14 @@
          }
          $('.alert').addClass("hide_form_div");
 
-        let url = getBaseURL()+"page/set_accounttype_session";   
+        let url = getBaseURL()+"registration/save";   
 
         let formdata = {};
                 //update session for this field : just in calse ::
 
-        formdata['type'] = fieldChangeId;
-        formdata['val'] = fieldValue;
+        formdata['emailAddress'] = emailAddress;
+        formdata['username'] = username;
+        formdata['password'] = password;
 
         let  response =  submitForm(url,"POST",formdata);
 
