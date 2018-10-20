@@ -29,11 +29,46 @@
          }
          $('.alert').addClass("hide_form_div");
 
-         console.log(emailAddress);
+        let url = getBaseURL()+"page/set_accounttype_session";   
+
+        let formdata = {};
+                //update session for this field : just in calse ::
+
+        formdata['type'] = fieldChangeId;
+        formdata['val'] = fieldValue;
+
+        let  response =  submitForm(url,"POST",formdata);
+
+        console.log(formdata);
+ 
         
          
     }   
  
+    var submitForm = function(url,method,formdata){
+        var response = {};
+        $.ajax({
+            type: method,
+            url:  url,
+            data:formdata,
+            success: function(data, textStatus, jqXHR){
+                response['type'] = "SUCCESS";
+                response['data'] = data;
+                response['textStatus'] = textStatus;
+                response['jqXHR'] = jqXHR;
+                return response;
+                              
+            },
+            error:function(data , textStatus, jqXHR)
+            { 
+                response['type'] = "FAILURE";
+                response['data'] = data;
+                response['textStatus'] = textStatus;
+                response['jqXHR'] = jqXHR;
+                return response;
+            }
+        });
+    }
     var handleRegistrationUI = function(VIEW){
         switch (VIEW) {
             case 'REGISTER':
