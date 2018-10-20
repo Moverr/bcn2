@@ -2,7 +2,7 @@
     include 'includes/header.php';
     ?>
  
- 
+ <script  src="scripts/registration.js"></script>
 <div class="container-fluid">
   <div class="row" id="content" >
   <div class="container-fluid"  >
@@ -43,7 +43,7 @@
                                 </div>
 
 
-                                <button type="submit" onClick={this.submitHandler} class="btn btn-primary">
+                                <button type="button" onClick="javascript:handleRegistration()" class="btn btn-primary">
                                     Submit 
                                 </button> &nbsp;&nbsp;&nbsp;
                                 <a href="#"> Already have an Account</a>
@@ -70,11 +70,6 @@
     // include 'includes/footer.php';
     ?>
  
-    <script type="text/babel" src="scripts/registration.js"></script>
-    <script type="text/babel">
-      // To get started with this tutorial running your own code, simply remove
-      // the script tag loading scripts/example.js and start writing code here.
-    </script>
-<!-- <script src="./scripts/registration.js"></script> -->
+
 </body>
 </html>
