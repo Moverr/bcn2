@@ -35,8 +35,11 @@ $(document).ready(function() {
   <div class="row" id="content" >
   <div class="container-fluid registration_form hide_form_div registration_panel "  >
                     <div class="row">
+                    
                         <div class="col-md-12">
-                        <h1>CREATE AN ACCOUNT  </h1>
+                         <h1>CREATE AN ACCOUNT  </h1>
+                         <div class="alert alert-warning   hide_form_div  " role="alert"> Something went wrong </div>
+                      
                             <form role="form">
                                 <div class="form-group">
                                     
@@ -51,7 +54,7 @@ $(document).ready(function() {
                                     <label htmlFor="userName">
                                         Username : 
                                     </label>
-                                    <input type="email" class="form-control" id="userName" />
+                                    <input type="text" class="form-control" id="userName" />
                                 </div>
 
                                 <div class="form-group">
