@@ -4,6 +4,26 @@
  
  <script  src="scripts/registration.js"></script> 
  <link rel="stylesheet" href="scripts/registration.css" crossorigin="anonymous" />
+ <script>
+ 
+$(document).ready(function() {
+    $(".handleRegistrationUI").click(function() {
+		//Do stuff when clicked
+		handleRegistrationUI('REGISTER')
+	});
+
+	 $(".handleLoginUI").click(function() {
+		//Do stuff when clicked
+		handleRegistrationUI('LOGIN')
+	});
+
+	
+	
+});
+
+	 </script>
+
+
 
 <div class="container-fluid">
   <div class="row" id="content" >
@@ -48,7 +68,7 @@
                                 <button type="button" onClick="javascript:handleRegistration()" class="btn btn-primary">
                                     Submit 
                                 </button> &nbsp;&nbsp;&nbsp;
-                                <a href="#"> Already have an Account</a>
+                                <a href="#" class="handleLoginUI"> Already have an Account</a>
                             </form>
                         </div>
                     </div>
@@ -85,7 +105,7 @@
                                 <button type="button" id="loginFormButton"   class="btn btn-primary">
                                     Submit 
                                 </button> &nbsp;&nbsp;&nbsp;
-                                <a href="#" id="registerAccount"> Register an account </a>
+                                <a href="#" id="handleRegistrationUI" class="handleRegistrationUI"> Register an account !! </a>
                             </form>
 						</div>
 						
