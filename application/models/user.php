@@ -15,7 +15,7 @@ class User extends CI_Model
         // todo: check to see that the user with the same email is not in the system:
         $user_email = $this->query_reader->get_list('get_user_by_email', $added_data);
         if (!empty($user_email)) {
-            throw new Exception('An Email Address '.$details['emailAddress'].' exists in the database ');
+            throw new InvalidArgumentException('An Email Address '.$details['emailAddress'].' exists in the database ');
         }
         // get_list
 

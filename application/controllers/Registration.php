@@ -44,12 +44,14 @@ class Registration extends CI_Controller
                 $data['emailAddress'] = $_POST['emailAddress'];
                 $data['password'] = $_POST['password'];
                 $response = $this->user->add($data);
-                var_dump($response);
+                $response['type'] = 'success';
+                $response['message'] = 'Record Saved Successfully';
+                echo   $response['message'];
             }
         } catch (Exception $e) {
             $response['type'] = 'error';
             $response['message'] = $e->getMessage();
-            var_dump($response);
+            echo   $response['message'];
         }
     }
 }

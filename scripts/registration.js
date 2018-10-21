@@ -40,7 +40,7 @@
 
         let  response =  submitForm(url,"POST",formdata);
 
-        console.log(formdata);
+        console.log(response);
  
         
          
@@ -52,21 +52,17 @@
             type: method,
             url:  url,
             data:formdata,
-            success: function(data, textStatus, jqXHR){
-                response['type'] = "SUCCESS";
-                response['data'] = data;
-                response['textStatus'] = textStatus;
-                response['jqXHR'] = jqXHR;
+            success: function(data, textStatus, jqXHR){               
+                var response =  JSON.parse(JSON.stringify(data));
+                $('.alert').removeClass('hide_form_div');
+                $('.alert').html(response)
                 return response;
                               
             },
             error:function(data , textStatus, jqXHR)
             { 
-                response['type'] = "FAILURE";
-                response['data'] = data;
-                response['textStatus'] = textStatus;
-                response['jqXHR'] = jqXHR;
-                return response;
+                $('.alert').html(data) 
+                 
             }
         });
     }
