@@ -36,15 +36,20 @@ class Registration extends CI_Controller
 
     public function save()
     {
-        $data = filter_forwarded_data($this);
+        try {
+            $data = filter_forwarded_data($this);
 
-        print_r($_POST);
-        if (!empty($_POST)) {
-            $data['username'] = $_POST['username'];
-            $data['emailAddress'] = $_POST['emailAddress'];
-            $data['password'] = $_POST['password'];
-
-            $this->user->add($data);
+            if (!empty($_POST)) {
+                $data['username'] = $_POST['username'];
+                $data['emailAddress'] = $_POST['emailAddress'];
+                $data['password'] = $_POST['password'];
+                $response = $this->user->add($data);
+                var_dump($response);
+            }
+        } catch (Exception $e) {
+            $response['type'] = 'error';
+            $response['message'] = $e->getMessage();
+            var_dump($response);
         }
     }
 }
