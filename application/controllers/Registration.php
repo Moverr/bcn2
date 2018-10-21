@@ -20,9 +20,18 @@ class Registration extends CI_Controller
      *
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+    public function __construct()
+    {
+        //load ci controller
+        parent::__construct();
+        $this->load->model('user', 'user');
+        //load Models
+    }
+
     public function index()
     {
-        $this->load->view('registration');
+        // $this->load->model('_validator');
+        // $this->load->model('_billingmanagement');
     }
 
     public function save()
@@ -31,7 +40,11 @@ class Registration extends CI_Controller
 
         print_r($_POST);
         if (!empty($_POST)) {
-            echo 'Did you know';
+            $data['username'] = $_POST['username'];
+            $data['emailAddress'] = $_POST['emailAddress'];
+            $data['password'] = $_POST['password'];
+
+            $this->user->add($data);
         }
     }
 }
