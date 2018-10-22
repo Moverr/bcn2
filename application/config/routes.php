@@ -58,3 +58,4 @@ $route['default_controller'] = 'welcome';
 //
 $route['register'] = 'registration';
 $route['register/save'] = 'registration/save';
+$route['user/login'] = 'registration/login';

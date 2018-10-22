@@ -16,6 +16,44 @@
 
  
    
+    var handleLogin = function(){
+        let userName = $("#loginUsername").val();
+        let passwword = $("#loginPassword").val();
+
+        if(userName.trim().length == 0  && passwword.trim().length == 0  ){
+            $('.alert').removeClass('hide_form_div');
+            $('.alert').html("Username and Password  are mandatory ");
+
+            return ; 
+        }        
+
+        let url = getBaseURL()+"user/login";   
+
+        let formdata = {};
+                //update session for this field : just in calse ::
+ 
+        formdata['username'] = username;
+        formdata['password'] = password;
+
+        
+        $.ajax({
+            type: method,
+            url:  url,
+            data:formdata,
+            success: function(data, textStatus, jqXHR){               
+               alert("Blame : "); 
+                              
+            },
+            error:function(data , textStatus, jqXHR)
+            { 
+                alert("Test Me Up ")
+                 
+            }
+        });
+
+
+    }
+ 
    
    var  handleRegistration = function (){
          let emailAddress = $("#emailAddress").val().trim();

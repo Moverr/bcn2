@@ -7,6 +7,11 @@
  <script>
  
 $(document).ready(function() {
+
+    $(".loginFormButton").click(function(){
+        alert("Test");
+    });
+
     $(".handleRegistrationUI").click(function() {
 		//Do stuff when clicked
 		handleRegistrationUI('REGISTER')
@@ -111,7 +116,7 @@ $(document).ready(function() {
                                
                                 
 
-                                <button type="button" id="loginFormButton"   class="btn btn-primary">
+                                <button type="button" id="loginFormButton"   class="loginFormButton btn btn-primary">
                                     Submit 
                                 </button> &nbsp;&nbsp;&nbsp;
                                 <a href="#" id="handleRegistrationUI" class="handleRegistrationUI"> Register an account !! </a>
