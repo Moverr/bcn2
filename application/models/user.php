@@ -33,7 +33,7 @@ class User extends CI_Model
         $boolean = false;
         $userId = '';
 
-        $user = $this->query_reader->get_row_as_array('get_user_by_name_and_pass', array('login_name' => $accountDetails['login_name'], 'login_password' => sha1($accountDetails['login_password'])));
+        $user = $this->query_reader->get_row_as_array('get_user_by_name_and_pass', array('username' => $accountDetails['login_name'], 'password' => sha1($accountDetails['login_password'])));
         if (!empty($user)) {
             $boolean = true;
             $userId = $user['id'];

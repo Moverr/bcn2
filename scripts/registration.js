@@ -19,7 +19,7 @@
     var handleLogin = function(){
         let username = $("#loginUsername").val();
         let passwword = $("#loginPassword").val();
-
+ 
         if(username.trim().length == 0  && passwword.trim().length == 0  ){
             $('.alert').removeClass('hide_form_div');
             $('.alert').html("Username and Password  are mandatory ");
@@ -29,17 +29,32 @@
 
         let url = getBaseURL()+"user/login";   
 
-        let formdata = {};
-                //update session for this field : just in calse ::
+        var formdata = {};
+        formdata['username'] =  username;
+        formdata['passwword'] =  passwword;
+        
+        // $('.alert').removeClass('hide_form_div');
 
-        // formdata['emailAddress'] = emailAddress;
-        // formdata['username'] = username;
-        // formdata['password'] = password;
-        $('.alert').removeClass('hide_form_div');
+        $.ajax({
+            type: "POST",
+            url:  url,
+            data:formdata,
+            success: function(data, textStatus, jqXHR){               
+                 console.log(data);
+                              
+            },
+            error:function(data , textStatus, jqXHR)
+            { 
+               alert("Fail");
+                 
+            }
+        });
+
+
        
-        let  response =  submitForm(url,"POST",formdata);
+        // let  response =  submitForm(url,"POST",formdata);
 
-        $('.alert').html(response);
+        // $('.alert').html(response);
     }
  
    
@@ -64,6 +79,7 @@
         formdata['username'] = username;
         formdata['password'] = password;
 
+        
         let  response =  submitForm(url,"POST",formdata);
 
         console.log(response);
