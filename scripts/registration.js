@@ -17,10 +17,10 @@
  
    
     var handleLogin = function(){
-        let userName = $("#loginUsername").val();
+        let username = $("#loginUsername").val();
         let passwword = $("#loginPassword").val();
 
-        if(userName.trim().length == 0  && passwword.trim().length == 0  ){
+        if(username.trim().length == 0  && passwword.trim().length == 0  ){
             $('.alert').removeClass('hide_form_div');
             $('.alert').html("Username and Password  are mandatory ");
 
@@ -31,27 +31,15 @@
 
         let formdata = {};
                 //update session for this field : just in calse ::
- 
-        formdata['username'] = username;
-        formdata['password'] = password;
 
-        
-        $.ajax({
-            type: method,
-            url:  url,
-            data:formdata,
-            success: function(data, textStatus, jqXHR){               
-               alert("Blame : "); 
-                              
-            },
-            error:function(data , textStatus, jqXHR)
-            { 
-                alert("Test Me Up ")
-                 
-            }
-        });
+        // formdata['emailAddress'] = emailAddress;
+        // formdata['username'] = username;
+        // formdata['password'] = password;
+        $('.alert').removeClass('hide_form_div');
+       
+        let  response =  submitForm(url,"POST",formdata);
 
-
+        $('.alert').html(response);
     }
  
    
@@ -83,6 +71,8 @@
         
          
     }   
+
+     
  
     var submitForm = function(url,method,formdata){
         var response = {};
@@ -104,7 +94,11 @@
             }
         });
     }
+    var reset_alert = function(){
+        $(".alert").addClass("hide_form_div");
+    }
     var handleRegistrationUI = function(VIEW){
+        reset_alert();
         switch (VIEW) {
             case 'REGISTER':
                     $('.registration_panel').removeClass("hide_form_div");
