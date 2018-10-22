@@ -9,7 +9,7 @@
 $(document).ready(function() {
 
     $(".loginFormButton").click(function(){
-        alert("Test");
+        handleLogin();
     });
 
     $(".handleRegistrationUI").click(function() {
@@ -96,6 +96,8 @@ $(document).ready(function() {
                     <div class="row">
                         <div class="col-md-8">
                         <h1> LOGIN ACCOUNT  </h1>
+                        <div class="alert alert-warning   hide_form_div  " role="alert"> Something went wrong </div>
+                      
                             <form role="form">
                                 <div class="form-group">
                                     
