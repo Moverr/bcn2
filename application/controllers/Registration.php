@@ -75,8 +75,7 @@ class Registration extends CI_Controller
 
                 $this->session->sess_expiration = 900; // 15 mins
                 $this->session->sess_expire_on_close = false;
-                $data['msg'] = 'Welcome Back ';
-                var_dump($data);
+                $data['status'] = 'SUCCESS ';
 
             // Go to the user dashboard
                 // redirect(base_url().'message/inbox');
@@ -84,23 +83,15 @@ class Registration extends CI_Controller
             // Invalid credentials
             else {
                 $this->_logger->add_event(array('log_code' => 'user_login', 'result' => 'fail', 'details' => 'username='.trim($this->input->post('loginusername'))));
-                $data['msg'] = 'WARNING: Invalid login details.';
+                $data['status'] = 'FAILURE ';
                 // $this->load->view('account/login', $data);
-                var_dump($data);
             }
         } else {
             $data['msg'] = 'ERROR: Your submission could not be verified.';
-
+            $data['status'] = 'FAILURE ';
             // $this->load->view('account/login', $data);
-            var_dump($data);
         }
 
-        // If already logged in, log out of current session
-        // elseif ($this->native_session->get('__user_id')) {
-        //     $this->logout($this->native_session->get('__user_id'));
-        //     $data['msg'] = 'You have been logged out.';
-        //     echo $data;
-        //     // $this->load->view('account/login', $data);
-        // }
+        echo $data['status'];
     }
 }
