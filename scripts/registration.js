@@ -39,10 +39,13 @@
             type: "POST",
             url:  url,
             data:formdata,
-            success: function(data, textStatus, jqXHR){               
+            success: function(data, textStatus, jqXHR){            
+                var jsonData = JSON.parse(data);   
                 $('.alert').removeClass('hide_form_div').html("Logged in Successfully ");
-                let redirection_url = getBaseURL()+"dashboard/home";   
-                window.location.replace(redirection_url);
+                // let redirection_url = getBaseURL()+"dashboard/home";   
+                // window.location.replace(redirection_url);
+                console.log(jsonData);
+                alert("pass");
                               
             },
             error:function(data , textStatus, jqXHR)

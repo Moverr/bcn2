@@ -63,32 +63,39 @@ class Registration extends CI_Controller
             //Is user verified?
             $results = $this->user->is_valid_account(array('login_name' => trim($this->input->post('username')), 'login_password' => trim($this->input->post('passwword'))));
             if ($results['boolean']) {
-                // $this->load->model('_permission');
-                //If so, assign permissions and redirect to their respective dashboard
-                // $this->native_session->set('__permissions', $this->_permission->get_user_permission_list($results['user_id']));
-                //Log sign-in event
-                // $this->_logger->add_event(array('log_code' => 'user_login', 'result' => 'success', 'details' => 'userid='.$results['user_id'].'|username='.trim($this->input->post('loginusername'))));
+                $userdetails['userid'] = $results[0]['userid'];
+                $userdetails['username'] = $results[0]['username'];
+                $userdetails['isadmin'] = (!empty($results[0]['groupid']) && $results[0]['groupid'] == 14 ? 'Y' : 'N');
 
-                $this->session->sess_expiration = 900; // 15 mins
-                $this->session->sess_expire_on_close = false;
+                $userdetails['emailaddress'] = $results[0]['emailaddress'];
+                // $userdetails['names'] = $results[0]['firstname'].' '.$results[0]['lastname'];
+                // $userdetails['firstname'] = $results[0]['firstname'];
+                // $userdetails['lastname'] = $results[0]['lastname'];
+
+                //print_r($userdetails);
+
+                $this->session->set_userdata($userdetails);
+                $this->session->set_userdata('alluserdata', $userdetails);
+                setcookie('loggedin', 'true', time() + $this->config->item('sess_time_to_update'));
+
                 $data['status'] = 'SUCCESS ';
 
+                var_dump($data);
             // Go to the user dashboard
                 // redirect(base_url().'message/inbox');
             }
             // Invalid credentials
             else {
                 // $this->_logger->add_event(array('log_code' => 'user_login', 'result' => 'fail', 'details' => 'username='.trim($this->input->post('loginusername'))));
-                // $data['status'] = 'FAILURE ';
-                // $this->load->view('account/login', $data);
+                $data['status'] = 'FAILURE ';
+                var_dump($data);
             }
         } else {
             $data['msg'] = 'ERROR: Your submission could not be verified.';
             $data['status'] = 'FAILURE ';
-            // $this->load->view('account/login', $data);
-        }
 
-        echo $data['status'];
+            var_dump($data);
+        }
     }
 }
 

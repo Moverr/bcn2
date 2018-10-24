@@ -54,13 +54,12 @@ class Dashboard extends CI_Controller
         }
 
         //Unset navigation session settings
-        $this->session->unset_userdata(array('from_search_results' => ''));
-
-        var_dump($this->session->userdata);
-        exit('pass');
+        // $this->session->unset_userdata(array('from_search_results' => ''));
+        var_dump($this->session->userdata());
+        exit();
 
         //checks if the user's session expired
-        if ($this->session->userdata('userid') || ($this->input->cookie('loggedin') && $this->input->cookie('loggedin') == 'true' && empty($data['x']))) {
+        if ($this->session->userdata('userid')) {
             if ($this->session->userdata('fwdurl')) {
                 exit($this->session->userdata('fwdurl'));
                 redirect($this->session->userdata('fwdurl'));
