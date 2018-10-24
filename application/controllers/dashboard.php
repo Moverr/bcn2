@@ -26,18 +26,20 @@ class Admin extends CI_Controller {
 		//**********  Back button will not work, after logout  **********//
 		
 		parent::__construct();	
-		$this->load->library('form_validation'); 
-		$this->load->model('users_m','user1');
-		$this->load->model('sys_email','sysemail');
-		$this->session->set_userdata('page_title','Login');
-		date_default_timezone_set(SYS_TIMEZONE);
-		$data = array();
+		// $this->load->library('form_validation'); 
+		// $this->load->model('users_m','user1');
+		// $this->load->model('sys_email','sysemail');
+		// $this->session->set_userdata('page_title','Login');
+		// date_default_timezone_set(SYS_TIMEZONE);
+		// $data = array();
+
 
 		#MOVER LOADED MODELS
-        $this->load->model('pde_m');
-        $this->load->model('Pdetypes_m');
-        $this->load->model('Usergroups_m');	
-         $this->load->model('Remoteapi_m');  	
+        // $this->load->model('pde_m');
+        // $this->load->model('Pdetypes_m');
+        // $this->load->model('Usergroups_m');	
+		//  $this->load->model('Remoteapi_m');  	
+		 
     }
     
     
