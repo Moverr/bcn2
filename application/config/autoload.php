@@ -90,8 +90,9 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-// $autoload['helper'] = array('url', 'file', 'common_functions');
+$autoload['helper'] = array('url', 'file', 'common_functions');
 
+/*
 $autoload['helper'] = array(
     'url',
     'file',
@@ -135,6 +136,7 @@ $autoload['helper'] = array(
     'lots',
      'call_off',
 );
+*/
 
 /*
 | -------------------------------------------------------------------

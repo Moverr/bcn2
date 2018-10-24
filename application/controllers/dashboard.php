@@ -56,6 +56,9 @@ class Dashboard extends CI_Controller
         //Unset navigation session settings
         $this->session->unset_userdata(array('from_search_results' => ''));
 
+        var_dump($this->session->userdata);
+        exit('pass');
+
         //checks if the user's session expired
         if ($this->session->userdata('userid') || ($this->input->cookie('loggedin') && $this->input->cookie('loggedin') == 'true' && empty($data['x']))) {
             if ($this->session->userdata('fwdurl')) {
@@ -68,10 +71,10 @@ class Dashboard extends CI_Controller
             setcookie('loggedin', 'false', time() + $this->config->item('sess_time_to_update'));
             //Consider passing on some messages even if the user is automatically logged out.
             if (!empty($data['m']) && in_array($data['m'], array('nmsg'))) {
-                $url = base_url().'admin/logout'.$addn;
+                $url = base_url().'dashboard/logout'.$addn;
             } else {
                 $this->session->set_userdata('exp', 'Your session has expired.');
-                $url = base_url().'admin/logout/m/exp';
+                $url = base_url().'dashboard/logout/m/exp';
             }
 
             redirect($url);

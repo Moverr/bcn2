@@ -1437,7 +1437,7 @@ function getBrowser()
 function format_usertype($usertype)
 {
     switch ($usertype) {
-        case 'IP' :
+        case 'IP':
             return 'Internal Personnel';
             break;
 
@@ -2522,6 +2522,32 @@ function format_age($userAge, $return = 'style', $retirementAge = RETIREMENT_AGE
     }
 
     return $format;
+}
+
+// Picks out all non-zero data from a URl array to be passed to a form
+function assign_to_data($urldata, $passed_defaults = array())
+{
+    $data_array = array();
+    $default_field_values = array('Enter Time', 'Enter First Name', 'Enter Last Name');
+    if (!empty($passed_defaults)) {
+        $default_field_values = array_unique(array_merge($default_field_values, $passed_defaults));
+    }
+
+    foreach ($urldata as $key => $value) {
+        if (in_array($value, $default_field_values)) {
+            $value = '_';
+        }
+
+        if ($value !== false && trim($value) != '' && !array_key_exists($value, $urldata)) {
+            if ($value == '_') {
+                $data_array[$key] = '';
+            } else {
+                $data_array[$key] = $value;
+            }
+        }
+    }
+
+    return $data_array;
 }
 
 ?>

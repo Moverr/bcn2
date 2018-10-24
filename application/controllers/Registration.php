@@ -78,8 +78,8 @@ class Registration extends CI_Controller
             }
             // Invalid credentials
             else {
-                $this->_logger->add_event(array('log_code' => 'user_login', 'result' => 'fail', 'details' => 'username='.trim($this->input->post('loginusername'))));
-                $data['status'] = 'FAILURE ';
+                // $this->_logger->add_event(array('log_code' => 'user_login', 'result' => 'fail', 'details' => 'username='.trim($this->input->post('loginusername'))));
+                // $data['status'] = 'FAILURE ';
                 // $this->load->view('account/login', $data);
             }
         } else {
