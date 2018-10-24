@@ -90,7 +90,51 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'file', 'common_functions');
+// $autoload['helper'] = array('url', 'file', 'common_functions');
+
+$autoload['helper'] = array(
+    'url',
+    'file',
+    'html',
+    'form',
+    'date',
+    'killerfunctions',
+    'commonfunctions',
+    'communications_helper',
+    'user',
+    'usertype',
+    'district',
+    'sub_county',
+    'parish',
+    'projects',
+    'pde',
+    'bootstrap',
+    'procurement_methods',
+    'pde_departments',
+    'source_funding',
+    'currency',
+    'procurement_plan',
+    'notification',
+    'procurement_plan_entry',
+    'procurement_type',
+    'procurement_plan_phase',
+    'procurement_plan_status',
+    'usergroup',
+    'contracts',
+    'bid_receipts',
+    'disposal',
+    'disposal_method',
+    'disposal_record',
+    'provider',
+    'disposal_contract',
+    'bid_invitation',
+    'dompdf',
+    'site_mail',
+    'templates',
+    'variation',
+    'lots',
+     'call_off',
+);
 
 /*
 | -------------------------------------------------------------------

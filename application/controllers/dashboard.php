@@ -9,7 +9,7 @@ ob_start();
 // It contains the login and other access control functions.
 //*********************************************************************************
 
-class Admin extends CI_Controller
+class Dashboard extends CI_Controller
 {
     // Constructor
     public function __construct()
