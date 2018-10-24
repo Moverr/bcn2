@@ -12,7 +12,7 @@ ob_start();
 class Admin extends CI_Controller {
 	
 	# Constructor
-	function Admin() 
+	function __construct() 
 	{	
 		//**********  Back button will not work, after logout  **********//
 			header("cache-Control: no-store, no-cache, must-revalidate");
@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
     }
     
     
-	function load_dashboard()
+	function home()
 	{	
 		# Get the passed details into the url data array if any
 		$urldata = $this->uri->uri_to_assoc(3, array('m', 'x'));
