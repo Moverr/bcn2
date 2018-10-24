@@ -57,13 +57,9 @@ class Registration extends CI_Controller
 
     public function login()
     {
-        var_dump($_POST);
         $data = filter_forwarded_data($this);
 
-        var_dump($_POST);
         if (!empty($_POST)) {
-            var_dump($_POST);
-
             //Is user verified?
             $results = $this->user->is_valid_account(array('login_name' => trim($this->input->post('username')), 'login_password' => trim($this->input->post('passwword'))));
             if ($results['boolean']) {
@@ -95,3 +91,7 @@ class Registration extends CI_Controller
         echo $data['status'];
     }
 }
+
+// Hope this email finds you well, I want to share the domain name where our project is going to be hosted, https://coincashgroup.com/ .
+// | UserName: coincashgroup
+// | PassWord: =$-EgeqJd7tR

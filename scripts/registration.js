@@ -34,19 +34,21 @@
         formdata['passwword'] =  passwword;
         
         // $('.alert').removeClass('hide_form_div');
-
+        $('.alert').removeClass('hide_form_div').html("Processing ... ");
         $.ajax({
             type: "POST",
             url:  url,
             data:formdata,
             success: function(data, textStatus, jqXHR){               
-                 console.log(data);
+                $('.alert').removeClass('hide_form_div').html("Logged in Successfully ");
+                let redirection_url = getBaseURL()+"dashboard/home";   
+                window.location.replace(redirection_url);
                               
             },
             error:function(data , textStatus, jqXHR)
             { 
-               alert("Fail");
-                 
+              
+                  $('.alert').removeClass('hide_form_div').html("Could not log you  in ");
             }
         });
 
